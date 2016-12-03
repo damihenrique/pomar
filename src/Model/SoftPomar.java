@@ -9,5 +9,6 @@ public class SoftPomar {
         Inicial inif = new Inicial();
         inif.setVisible(true);
         inif.setLocationRelativeTo(null);
+        // aaaaaa
     }  
 }
