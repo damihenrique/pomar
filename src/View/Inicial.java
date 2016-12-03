@@ -40,7 +40,12 @@ public class Inicial extends javax.swing.JFrame {
             }
         });
 
-        btRelatorios.setLabel("Relatórios");
+        btRelatorios.setLabel("Relatorios");
+        btRelatorios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRelatoriosActionPerformed(evt);
+            }
+        });
 
         labTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pomar.png"))); // NOI18N
 
@@ -79,16 +84,23 @@ public class Inicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastroActionPerformed
-        // TODO add your handling code here:
+        Cadastro cad = new Cadastro();
+        cad.setVisible(true);
+        cad.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_btCadastroActionPerformed
 
     private void btVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVendaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btVendaActionPerformed
 
     private void btListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListaActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_btListaActionPerformed
+
+    private void btRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatoriosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btRelatoriosActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

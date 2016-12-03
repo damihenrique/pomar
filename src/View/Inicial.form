@@ -86,8 +86,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="btRelatorios">
       <Properties>
-        <Property name="label" type="java.lang.String" value="Relat&#xf3;rios"/>
+        <Property name="label" type="java.lang.String" value="Relatorios"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRelatoriosActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labTitulo">
       <Properties>
