@@ -46,16 +46,16 @@ public class Cadastro extends javax.swing.JFrame {
         rbFisica = new javax.swing.JRadioButton();
         rbComercio = new javax.swing.JRadioButton();
         pPolpa = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        rbPolpa = new javax.swing.JRadioButton();
+        rbDetox = new javax.swing.JRadioButton();
+        cbSabor = new javax.swing.JComboBox<>();
+        labSabor = new javax.swing.JLabel();
+        labPreco = new javax.swing.JLabel();
+        tfPreco = new javax.swing.JTextField();
+        labFornecedor = new javax.swing.JLabel();
+        cbFornecedor = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        tfDescricao = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         btLimpar1 = new javax.swing.JButton();
         btCadastrar1 = new javax.swing.JButton();
@@ -244,38 +244,38 @@ public class Cadastro extends javax.swing.JFrame {
 
         pPolpa.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bgTipo1.add(jRadioButton1);
-        jRadioButton1.setText("Polpa");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        bgTipo1.add(rbPolpa);
+        rbPolpa.setText("Polpa");
+        rbPolpa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                rbPolpaActionPerformed(evt);
             }
         });
-        pPolpa.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        pPolpa.add(rbPolpa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        bgTipo1.add(jRadioButton2);
-        jRadioButton2.setText("Detox");
-        pPolpa.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        bgTipo1.add(rbDetox);
+        rbDetox.setText("Detox");
+        pPolpa.add(rbDetox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Morango", "Abacaxi", "Macarujá", "Laranja" }));
-        pPolpa.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+        cbSabor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Morango", "Abacaxi", "Macarujá", "Laranja" }));
+        pPolpa.add(cbSabor, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
 
-        jLabel1.setText("Sabor:");
-        pPolpa.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 20));
+        labSabor.setText("Sabor:");
+        pPolpa.add(labSabor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 20));
 
-        jLabel2.setText("Preço:");
-        pPolpa.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
-        pPolpa.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 120, -1));
+        labPreco.setText("Preço:");
+        pPolpa.add(labPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
+        pPolpa.add(tfPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 120, -1));
 
-        jLabel3.setText("Fornecedor:");
-        pPolpa.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, -1));
+        labFornecedor.setText("Fornecedor:");
+        pPolpa.add(labFornecedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MinasFrutas" }));
-        pPolpa.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, 20));
+        cbFornecedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MinasFrutas" }));
+        pPolpa.add(cbFornecedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, 20));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        tfDescricao.setColumns(20);
+        tfDescricao.setRows(5);
+        jScrollPane1.setViewportView(tfDescricao);
 
         pPolpa.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 340, 70));
 
@@ -296,7 +296,7 @@ public class Cadastro extends javax.swing.JFrame {
                 btCadastrar1ActionPerformed(evt);
             }
         });
-        pPolpa.add(btCadastrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 100, 40));
+        pPolpa.add(btCadastrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 100, 40));
 
         tpCadastro.addTab("Cadastro de Polpas", pPolpa);
 
@@ -361,9 +361,9 @@ public class Cadastro extends javax.swing.JFrame {
        limpaCampos();
     }//GEN-LAST:event_btLimparActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void rbPolpaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPolpaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_rbPolpaActionPerformed
 
     private void btLimpar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimpar1ActionPerformed
         // TODO add your handling code here:
@@ -433,39 +433,39 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JButton btLimpar1;
     private javax.swing.ButtonGroup btgTipo;
     private javax.swing.ButtonGroup btgWhats;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JComboBox<String> cbFornecedor;
+    private javax.swing.JComboBox<String> cbSabor;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labBairro;
     private javax.swing.JLabel labCel;
     private javax.swing.JLabel labCid;
     private javax.swing.JLabel labCom;
     private javax.swing.JLabel labFac;
     private javax.swing.JLabel labFis;
+    private javax.swing.JLabel labFornecedor;
     private javax.swing.JLabel labNome;
     private javax.swing.JLabel labNum;
+    private javax.swing.JLabel labPreco;
     private javax.swing.JLabel labRua;
+    private javax.swing.JLabel labSabor;
     private javax.swing.JLabel labWha;
     private javax.swing.JPanel pCliente;
     private javax.swing.JPanel pPolpa;
     private javax.swing.JRadioButton rbComercio;
+    private javax.swing.JRadioButton rbDetox;
     private javax.swing.JRadioButton rbFisica;
     private javax.swing.JRadioButton rbNao;
+    private javax.swing.JRadioButton rbPolpa;
     private javax.swing.JRadioButton rbSim;
     private javax.swing.JTextField tfBairro;
     private javax.swing.JTextField tfCelular;
     private javax.swing.JTextField tfCidade;
+    private javax.swing.JTextArea tfDescricao;
     private javax.swing.JTextField tfNome;
     private javax.swing.JTextField tfNum;
     private javax.swing.JTextField tfPerfil;
+    private javax.swing.JTextField tfPreco;
     private javax.swing.JTextField tfRua;
     private javax.swing.JTabbedPane tpCadastro;
     // End of variables declaration//GEN-END:variables
