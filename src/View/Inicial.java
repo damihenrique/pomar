@@ -18,6 +18,7 @@ public class Inicial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pomar Polpa de Fruta");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btCadastro.setText("Cadastrar");
         btCadastro.setActionCommand("btCadastro");
@@ -26,6 +27,7 @@ public class Inicial extends javax.swing.JFrame {
                 btCadastroActionPerformed(evt);
             }
         });
+        getContentPane().add(btCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 207, 129, 73));
 
         btLista.setLabel("Listar Cadastros");
         btLista.addActionListener(new java.awt.event.ActionListener() {
@@ -33,6 +35,7 @@ public class Inicial extends javax.swing.JFrame {
                 btListaActionPerformed(evt);
             }
         });
+        getContentPane().add(btLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 298, 129, 73));
 
         btVenda.setLabel("Nova Venda");
         btVenda.addActionListener(new java.awt.event.ActionListener() {
@@ -40,6 +43,7 @@ public class Inicial extends javax.swing.JFrame {
                 btVendaActionPerformed(evt);
             }
         });
+        getContentPane().add(btVenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 207, 129, 73));
 
         btRelatorios.setText("Relatórios");
         btRelatorios.addActionListener(new java.awt.event.ActionListener() {
@@ -47,39 +51,10 @@ public class Inicial extends javax.swing.JFrame {
                 btRelatoriosActionPerformed(evt);
             }
         });
+        getContentPane().add(btRelatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 298, 129, 73));
 
-        labTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pomar.png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btLista, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                    .addComponent(btCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btVenda, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                    .addComponent(btRelatorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(114, 114, 114))
-            .addComponent(labTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 600, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(labTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 173, Short.MAX_VALUE)
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btLista, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
-        );
+        labTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pomare.jpg"))); // NOI18N
+        getContentPane().add(labTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
