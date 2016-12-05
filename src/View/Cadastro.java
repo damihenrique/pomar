@@ -2,14 +2,19 @@
 package View;
 
 import Model.Cliente;
+import Model.Pomar;
+import Model.Produto;
 import javax.swing.JOptionPane;
 
 
 public class Cadastro extends javax.swing.JFrame {
     
     private Cliente cli;
+    private Produto pro;
+    private Pomar p;
     
-    public Cadastro() {
+    public Cadastro(Pomar p) {
+        this.p = p;
         initComponents();
     }
 
@@ -45,6 +50,7 @@ public class Cadastro extends javax.swing.JFrame {
         labCom = new javax.swing.JLabel();
         rbFisica = new javax.swing.JRadioButton();
         rbComercio = new javax.swing.JRadioButton();
+        btVoltar = new javax.swing.JButton();
         pPolpa = new javax.swing.JPanel();
         rbPolpa = new javax.swing.JRadioButton();
         rbDetox = new javax.swing.JRadioButton();
@@ -59,6 +65,7 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btLimpar1 = new javax.swing.JButton();
         btCadastrar1 = new javax.swing.JButton();
+        btVoltar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Clientes e Polpas");
@@ -74,6 +81,12 @@ public class Cadastro extends javax.swing.JFrame {
         labRua.setText("Rua:");
 
         labNum.setText("Número:");
+
+        tfNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNumActionPerformed(evt);
+            }
+        });
 
         labBairro.setText("Bairro:");
 
@@ -128,6 +141,13 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pClienteLayout = new javax.swing.GroupLayout(pCliente);
         pCliente.setLayout(pClienteLayout);
         pClienteLayout.setHorizontalGroup(
@@ -137,30 +157,29 @@ public class Cadastro extends javax.swing.JFrame {
                 .addComponent(btCadastrar)
                 .addGap(50, 50, 50)
                 .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(182, 182, 182))
+                .addGap(111, 111, 111)
+                .addComponent(btVoltar)
+                .addContainerGap())
             .addGroup(pClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pClienteLayout.createSequentialGroup()
-                        .addComponent(rbComercio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labCom))
                     .addGroup(pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(pClienteLayout.createSequentialGroup()
                             .addGroup(pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(labRua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(labNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(pClienteLayout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(tfNome))
-                                .addGroup(pClienteLayout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(tfRua, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(20, 20, 20)
+                                    .addComponent(tfRua, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addComponent(labNum)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(tfNum))))
+                                    .addComponent(tfNum))
+                                .addGroup(pClienteLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addContainerGap(15, Short.MAX_VALUE))
                         .addGroup(pClienteLayout.createSequentialGroup()
                             .addGroup(pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(pClienteLayout.createSequentialGroup()
@@ -173,25 +192,34 @@ public class Cadastro extends javax.swing.JFrame {
                                     .addComponent(labCel)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(tfCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(pClienteLayout.createSequentialGroup()
-                                    .addGap(9, 9, 9)
+                                    .addGap(19, 19, 19)
                                     .addComponent(labWha)
                                     .addGap(14, 14, 14)
                                     .addComponent(rbSim)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(rbNao))
-                                .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(pClienteLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(pClienteLayout.createSequentialGroup()
                             .addComponent(labFac)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(tfPerfil)))
+                            .addComponent(tfPerfil)
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(pClienteLayout.createSequentialGroup()
-                        .addComponent(rbFisica)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labFis)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pClienteLayout.createSequentialGroup()
+                                .addComponent(rbComercio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labCom))
+                            .addGroup(pClienteLayout.createSequentialGroup()
+                                .addComponent(rbFisica)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labFis)))
+                        .addContainerGap(474, Short.MAX_VALUE))))
         );
         pClienteLayout.setVerticalGroup(
             pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,15 +257,21 @@ public class Cadastro extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(rbFisica))
                     .addComponent(labFis, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rbComercio, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labCom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
+                    .addGroup(pClienteLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbComercio, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labCom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addGroup(pClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pClienteLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btVoltar)
+                        .addContainerGap())))
         );
 
         tpCadastro.addTab("Cadastro de Clientes", pCliente);
@@ -288,7 +322,7 @@ public class Cadastro extends javax.swing.JFrame {
                 btLimpar1ActionPerformed(evt);
             }
         });
-        pPolpa.add(btLimpar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 100, 40));
+        pPolpa.add(btLimpar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 100, 40));
 
         btCadastrar1.setText("Cadastrar");
         btCadastrar1.addActionListener(new java.awt.event.ActionListener() {
@@ -296,7 +330,15 @@ public class Cadastro extends javax.swing.JFrame {
                 btCadastrar1ActionPerformed(evt);
             }
         });
-        pPolpa.add(btCadastrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 100, 40));
+        pPolpa.add(btCadastrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 100, 40));
+
+        btVoltar1.setText("Voltar");
+        btVoltar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltar1ActionPerformed(evt);
+            }
+        });
+        pPolpa.add(btVoltar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, -1, -1));
 
         tpCadastro.addTab("Cadastro de Polpas", pPolpa);
 
@@ -306,8 +348,8 @@ public class Cadastro extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tpCadastro)
-                .addContainerGap())
+                .addComponent(tpCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,7 +380,7 @@ public class Cadastro extends javax.swing.JFrame {
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         
-        String error = validaCampos();
+        String error = validaCampoCli();
         if(error == "NENHUM"){
             cli = new Cliente();
             cli.setNome(tfNome.getText());
@@ -350,6 +392,7 @@ public class Cadastro extends javax.swing.JFrame {
             cli.setFacebook(tfPerfil.getText());
             cli.setWhats(rbSim.isSelected());
             cli.setPessoafisica(rbFisica.isSelected());
+            p.getCliente().add(cli);
         }
         else{
             JOptionPane.showMessageDialog(rootPane, error, "Erro", JOptionPane.ERROR_MESSAGE);
@@ -366,12 +409,47 @@ public class Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_rbPolpaActionPerformed
 
     private void btLimpar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimpar1ActionPerformed
-        // TODO add your handling code here:
+        tfPreco.setText("");
+        tfDescricao.setText("");
+        bgTipo1.clearSelection();
     }//GEN-LAST:event_btLimpar1ActionPerformed
 
     private void btCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrar1ActionPerformed
-        // TODO add your handling code here:
+        String error = validaCampoPro();
+        if(error == "NENHUM"){
+            pro = new Produto();
+            pro.setDescricao(tfDescricao.getText());
+            pro.setFornecedor(cbFornecedor.getSelectedItem().toString());
+            pro.setPreco(Float.parseFloat(tfPreco.getText()));
+            pro.setSabor(cbSabor.getSelectedItem().toString());
+            if(rbPolpa.isSelected()) 
+                pro.setTipo("Polpa");
+            else
+                pro.setTipo("Detox");
+            p.getProduto().add(pro);
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane, error, "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btCadastrar1ActionPerformed
+
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        Inicial ini = new Inicial(p);
+        ini.setVisible(true);
+        ini.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltar1ActionPerformed
+        Inicial ini = new Inicial(p);
+        ini.setVisible(true);
+        ini.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_btVoltar1ActionPerformed
+
+    private void tfNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNumActionPerformed
     
     public void limpaCampos(){
         tfNome.setText("");
@@ -384,7 +462,7 @@ public class Cadastro extends javax.swing.JFrame {
         btgTipo.clearSelection();
         btgWhats.clearSelection();
     }
-    public String validaCampos(){
+    public String validaCampoCli(){
         if(tfNome.getText().isEmpty()) return "Preencha o campo Nome!";
         if(!rbSim.isSelected() && !rbNao.isSelected())
             return "Selecione se possui WhatsApp ou não!";
@@ -392,37 +470,13 @@ public class Cadastro extends javax.swing.JFrame {
             return "Selecione se é Pessoa Física ou não!";
         return "NENHUM";
     }
-    
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Cadastro().setVisible(true);
-            }
-        });
+    public String validaCampoPro(){
+         if(!rbPolpa.isSelected() && !rbDetox.isSelected())
+            return "Selecione se é Polpa ou Detox!";
+         if(tfPreco.getText().isEmpty())
+            return "Preencha o campo Preço!";
+        return "NENHUM";
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -431,6 +485,8 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JButton btCadastrar1;
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btLimpar1;
+    private javax.swing.JButton btVoltar;
+    private javax.swing.JButton btVoltar1;
     private javax.swing.ButtonGroup btgTipo;
     private javax.swing.ButtonGroup btgWhats;
     private javax.swing.JComboBox<String> cbFornecedor;
