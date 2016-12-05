@@ -76,7 +76,10 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btVendaActionPerformed
 
     private void btListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListaActionPerformed
-       
+         Listar lis = new Listar(p);
+         lis.setVisible(true);
+         lis.setLocationRelativeTo(null);
+         this.setVisible(false);
     }//GEN-LAST:event_btListaActionPerformed
 
     private void btRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatoriosActionPerformed
